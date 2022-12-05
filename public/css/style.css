@@ -1,0 +1,136 @@
+@charset "UTF-8";
+@import url(./reset.css);
+
+/* 헤더영역 */
+#wrap {width:1200px;margin:0 auto;position: relative;z-index:1;}
+
+/* 헤더영역 */
+#wrap #header {width:100%;height:100px;display: flex;position: relative;z-index:3;}
+#wrap #header .left  {width:200px;height:100px;background:#fff;}
+#wrap #header .left h1 {width:100%;height:100%;display: flex;align-items: center;}
+#wrap #header .left h1 a {display:block;width:100%;height:40px;display: flex;align-items: center;justify-content: center;background:rgba(50,150,200, 1);transition: all .3s;border-radius: 5px;}
+#wrap #header .left h1 a:hover {background:rgba(50,150,200, .7);}
+#wrap #header .left h1 a img {width:50%;}
+
+#wrap #header .right {width:1000px;height:100px;background:#fff;}
+/* 메인메뉴 */
+#wrap #header .right #nav {width:700px;height:50px;background:rgba(255,255,255, 1);margin:25px 20px 25px auto;}
+#wrap #header .right #nav > ul {width:100%;display: flex;}
+#wrap #header .right #nav > ul > li {width:25%;}
+#wrap #header .right #nav > ul > li > a {display:block;width:100%;height:50px;display:flex;align-items:center;justify-content:center;border:1px solid #ccc;border-right:0;transition: all .3s;background: rgba(50,150,200, 0);color:#000;font-weight:500;font-size:16px;}
+#wrap #header .right #nav > ul > li:last-child > a {border-right:1px solid #ccc;}
+#wrap #header .right #nav > ul > li > a:hover {background: rgba(50,150,200, 1);color:#fff;border:1px solid rgba(50,150,200, 1);}
+#wrap #header .right #nav > ul > li > a.on    {background: rgba(50,150,200, 1);color:#fff;border:1px solid rgba(50,150,200, 1);}
+
+/* 서브메뉴 */
+#wrap #header .right #nav > ul > li .sub {width:100%;background:#fff;display: none;}
+#wrap #header .right #nav > ul > li .sub.on {display: block;}
+#wrap #header .right #nav > ul > li .sub ul {padding:10px 0;}
+#wrap #header .right #nav > ul > li .sub ul li {width:100%;}
+#wrap #header .right #nav > ul > li .sub ul li a {display: block;width:100%;height:30px;display:flex;justify-content: center;align-items: center;background:#fff;transition: all .3s;}
+#wrap #header .right #nav > ul > li .sub ul li a:hover {background: rgba(50,150,200, 1);;color:#fff;}
+
+
+
+
+/* 메인영역 */
+#wrap #main {width:100%;position: relative;z-index:1;}
+#wrap #main #section1 {width:100%;height:300px;background-color:#ffc;}
+
+/* 메인슬라이드 */
+#wrap #main #section1 .slide-container {width:100%;}
+/* 수직이동 슬라이드는 높이설정하고 오버플로우 히든사용 */
+#wrap #main #section1 .slide-container .slide-view {width:100%;height:300px;overflow: hidden;}
+/* 포지션 설정하면 top 또는 left 속성 사용 가능함. */
+#wrap #main #section1 .slide-container .slide-view .slide-wrap {position:relative;width:100%;margin:-300px 0 0 0;top:calc(-300px*0);}
+#wrap #main #section1 .slide-container .slide-view .slide-wrap .slide {width:100%;position: relative;}
+#wrap #main #section1 .slide-container .slide-view .slide-wrap .slide img {width:100%;position: relative;z-index:1;}
+#wrap #main #section1 .slide-container .slide-view .slide-wrap .slide h2 {z-index:2;position: absolute;top:50%;left:0;color:rgba(255,255,255, .9);font-size:60px;font-weight:600;text-align: center;margin:-30px 0 0 0;width:100%;}
+
+
+#wrap #main #section2 {width:100%;height:200px;display: flex;padding:10px 0 0 0;justify-content: space-between;}
+/* 공지사항 */
+#wrap #main #section2  .left   {width:393.3333333px;height:100%;padding:40px 0 0 0;position:relative;}
+#wrap #main #section2  .left button {width:100px;height:41px;position:absolute;top:0;border:1px solid #ccc;border-bottom:0;border-radius:5px 5px 0 0;}
+#wrap #main #section2  .left button.notice-btn  {left:10px;background:#fff;z-index:3;cursor:default;}
+#wrap #main #section2  .left button.notice-btn.on  {background:#f0f0f0;z-index:1;cursor:pointer;}
+#wrap #main #section2  .left button.gallery-btn {left:110px;z-index:1;background:#f0f0f0;cursor:pointer;}
+#wrap #main #section2  .left button.gallery-btn.on {z-index:3;background:#fff;cursor:default;}
+/* 공지사항박스 */
+#wrap #main #section2  .left .notice-box {width:100%;height:100%;border:1px solid #ccc;z-index:2;position: relative;}
+#wrap #main #section2  .left .notice-box.on {display: none;}
+/* 공지사항 목록 내용 */
+#wrap #main #section2  .left .notice-box .gap {padding:15px;}
+#wrap #main #section2  .left .notice-box .gap ul {width:100%;}
+#wrap #main #section2  .left .notice-box .gap ul li {width:100%;height:30px;display: flex;align-items: center;justify-content: space-between;position: relative;padding:0 0 0 12px;}
+#wrap #main #section2  .left .notice-box .gap ul li::before {content:'';position: absolute;top:50%;left:0;width:3px;height:3px;margin:-1.5px 0 0 0;background:#333;}
+/* 
+1. 너비 60% width:60%
+2. 줄바꿈 안함 white-space: nowrap 화이트-스페이스 : 노랩
+3. 너비 넘는 글자 숨기기 overflow: hidden 오버플로우: 히든
+4. 잘린글자(숨기기한글자)를 ... 말줄임표로 표현하기 text-overflow: ellipsis 텍스트-오버플로우: 엘립시스
+ */
+#wrap #main #section2  .left .notice-box .gap ul li a {color:#444;width:60%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+#wrap #main #section2  .left .notice-box .gap ul li a:hover {color:#47c;}
+#wrap #main #section2  .left .notice-box .gap ul li span {color:#999;}
+
+
+/* 갤러리박스 */
+#wrap #main #section2  .left .gallery-box {display:none;width:100%;height:100%;border:1px solid #ccc;z-index:2;position: relative;  text-align: center;line-height:150px;}
+#wrap #main #section2  .left .gallery-box.on {display:block;}
+/* 갤러리 이미지 */
+#wrap #main #section2  .left .gallery-box .gap {padding: 0 10px;}
+#wrap #main #section2  .left .gallery-box .gap ul {display:flex;}
+#wrap #main #section2  .left .gallery-box .gap ul li {width:33.33333%;}
+#wrap #main #section2  .left .gallery-box .gap ul li .col-gap {margin:0 10px;}
+#wrap #main #section2  .left .gallery-box .gap ul li .col-gap img {width:100%;}
+
+
+#wrap #main #section2  .center {width:393.3333333px;height:100%;}
+#wrap #main #section2  .center .title {width:100%;height:40px;background:#fff;display: flex;align-items: center;justify-content: center;border:1px solid #ccc;border-bottom:0;}
+#wrap #main #section2  .center .title h2 {font-size:15px;font-weight: 500;}
+#wrap #main #section2  .center .img-box {width:100%;border:1px solid #ddd;height:150px;display:flex;align-items: center;justify-content: center;overflow: hidden;}
+#wrap #main #section2  .center .img-box img {width:100%;}
+
+#wrap #main #section2  .right  {width:393.3333333px;height:100%;}
+#wrap #main #section2  .right .title {width:100%;height:40px;background:#fff;display: flex;align-items: center;justify-content: center;border:1px solid #ccc;border-bottom:0;}
+#wrap #main #section2  .right .title h2 {font-size:15px;font-weight: 500;}
+#wrap #main #section2  .right .img-box {width:100%;border:1px solid #ddd;height:150px;display:flex;align-items: center;justify-content: center;overflow: hidden;}
+#wrap #main #section2  .right .img-box img {width:100%;}
+
+/* 푸터영역 */
+#wrap #footer {width:100%;height:90px;display: flex;position: relative;z-index:2;margin:10px 0 0 0;justify-content: space-between;background:#fff;}
+#wrap #footer .left   {width:200px;height:100%;display: flex;align-items: center;border:1px solid #ccc;}
+#wrap #footer .left  h1 {width:100%;}
+#wrap #footer .left  h1 a {display: flex;width:100%;height:40px;align-items: center;justify-content: center;}
+#wrap #footer .left  h1 a img {width:60%;}
+
+#wrap #footer .center {width:780px;height:100%;border:1px solid #ccc;}
+#wrap #footer .center .row1 {width:100%;height:50%;display: flex;align-items: center;justify-content: center;}
+#wrap #footer .center .row1 span {font-size:12px;}
+#wrap #footer .center .row1 span a {color:#999;}
+#wrap #footer .center .row1 span i {margin:0 10px;color:#999;}
+
+#wrap #footer .center .row2 {width:100%;height:50%;display: flex;align-items: center;justify-content: center;}
+#wrap #footer .center .row2 p {font-size:10px;color:#999;}
+
+#wrap #footer .right  {width:200px;height:100%;display: flex;align-items: center;justify-content: space-evenly;border:1px solid #ccc;}
+#wrap #footer .right span {display:inline-block;}
+#wrap #footer .right span a {display:inline-block;}
+#wrap #footer .right span a img {width:30px;border-radius:5px;}
+
+
+/* 모달창 */
+#modal {width:100%;height:100%;position: fixed;top:0;left:0;z-index:4;background:rgba(0,0,0, .6);}
+
+/* 콘테이너를 정렬 목적의 랩퍼 박스 */
+#modal .modal-wrap {width:100%;height:100%;display:flex;align-items: center;justify-content: center;}
+#modal .modal-wrap .modal-container {width:600px;background:#fff;}
+#modal .modal-wrap .modal-container .title {width:100%;height:60px;border-bottom:1px solid #ccc;display: flex;align-items: center;background:#f3f3f3;}
+#modal .modal-wrap .modal-container .title h2 {font-size:17px;font-weight:500;padding:0 0 0 20px;color:#000;}
+#modal .modal-wrap .modal-container .content {width:100%;padding:10px 25px;}
+#modal .modal-wrap .modal-container .content ol {padding:0 0 0 20px;}
+#modal .modal-wrap .modal-container .content ol li {font-size:14px;padding:7px 0;line-height:160%;border-bottom: 0px solid #eee;}
+#modal .modal-wrap .modal-container .content ol li img {width:150px;}
+#modal .modal-wrap .modal-container .button-box {padding:10px 25px 25px 25px;text-align: right;}
+#modal .modal-wrap .modal-container .button-box .modal-close {padding:7px 30px;cursor: pointer;border:1px solid #ccc;border-radius:3px;}
